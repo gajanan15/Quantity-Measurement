@@ -2,12 +2,8 @@ package com.measurement;
 
 public class QuantityMeasurement {
 
-    public double returnFeet(double feet) {
-        return feet;
-    }
-
-    public double returnInch(double inch) {
-        return inch;
+       public double returnLengthType(LengthType type, double unit) {
+        return unit;
     }
 
     @Override

@@ -10,34 +10,32 @@ public class QuantityMeasurementTest {
     private static QuantityMeasurement quantityMeasurement;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp()  {
         quantityMeasurement = new QuantityMeasurement();
     }
 
     @Test
     public void given0FeetAnd0Feet_IfEqual_ShouldReturnTrue() {
-        double feet1 = quantityMeasurement.returnFeet(0.0);
-        double feet2 = quantityMeasurement.returnFeet(0.0);
+        double feet1 = quantityMeasurement.returnLengthType(LengthType.FEET,0.0);
+        double feet2 = quantityMeasurement.returnLengthType(LengthType.FEET, 0.0);
         assertEquals(feet1, feet2, 0.0);
     }
 
     @Test
     public void given0FeetAnd1Feet_IfNotEqual_ShouldReturnTrue() {
-        double feet1 = quantityMeasurement.returnFeet(0.0);
-        double feet2 = quantityMeasurement.returnFeet(1.0);
+        double feet1 = quantityMeasurement.returnLengthType(LengthType.FEET, 0.0);
+        double feet2 = quantityMeasurement.returnLengthType(LengthType.FEET, 1.0);
         assertNotEquals(feet1, feet2, 0.0);
     }
 
     @Test
     public void givenNullValueForFeet_IfEqual_ShouldReturnFalse() {
-        boolean equals = quantityMeasurement.equals(null);
-        assertFalse(equals);
+        assertFalse( quantityMeasurement.equals(null));
     }
 
     @Test
     public void givenReferenceForFeet_IfEqual_ShouldReturnTrue() {
-        boolean equals = quantityMeasurement.equals(quantityMeasurement);
-        assertTrue(equals);
+        assertTrue( quantityMeasurement.equals(quantityMeasurement));
     }
 
     @Test
@@ -49,35 +47,33 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenValueCheck_IfEqual_ShouldReturnTrue() {
-        double value1 = quantityMeasurement.returnFeet(2.2);
-        double value2 = quantityMeasurement.returnFeet(2.2);
+        double value1 = quantityMeasurement.returnLengthType(LengthType.FEET, 2.2);
+        double value2 = quantityMeasurement.returnLengthType(LengthType.FEET, 2.2);
         assertEquals(value1, value2, 0.0);
     }
 
     @Test
     public void given0InchAnd0Inch_IfEqual_ShouldReturnTrue() {
-        double inch1 = quantityMeasurement.returnInch(0.0);
-        double inch2 = quantityMeasurement.returnInch(0.0);
+        double inch1 = quantityMeasurement.returnLengthType(LengthType.INCH, 0.0);
+        double inch2 = quantityMeasurement.returnLengthType(LengthType.INCH, 0.0);
         assertEquals(inch1, inch2, 0.0);
     }
 
     @Test
     public void given0InchAnd1Inch_IfNotEqual_ShouldReturnTrue() {
-        double inch1 = quantityMeasurement.returnInch(0.0);
-        double inch2 = quantityMeasurement.returnInch(1.0);
+        double inch1 = quantityMeasurement.returnLengthType(LengthType.INCH, 0.0);
+        double inch2 = quantityMeasurement.returnLengthType(LengthType.INCH, 1.0);
         assertNotEquals(inch1, inch2, 0.0);
     }
 
     @Test
     public void givenNullValueForInch_IfEqual_ShouldReturnFalse() {
-        boolean equals = quantityMeasurement.equals(null);
-        assertFalse(equals);
+        assertFalse(quantityMeasurement.equals(null));
     }
 
     @Test
     public void givenReferenceForInch_IfEqual_ShouldReturnTrue() {
-        boolean equals = quantityMeasurement.equals(quantityMeasurement);
-        assertTrue(equals);
+        assertTrue(quantityMeasurement.equals(quantityMeasurement));
     }
 
     @Test
@@ -89,8 +85,8 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenValueCheckForInch_IfEqual_ShouldReturnTrue() {
-        double value1 = quantityMeasurement.returnInch(2.2);
-        double value2 = quantityMeasurement.returnInch(2.2);
+        double value1 = quantityMeasurement.returnLengthType(LengthType.INCH, 2.2);
+        double value2 = quantityMeasurement.returnLengthType(LengthType.INCH, 2.2);
         assertEquals(value1, value2, 0.0);
     }
 }
