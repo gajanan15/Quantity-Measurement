@@ -9,7 +9,8 @@ import static org.junit.Assert.*;
 public class QuantityMeasurementTest {
     private static QuantityMeasurement quantityMeasurement;
     private double inch1, inch2;
-    private double litre1,litre2;
+    private double litre1, litre2;
+    private double kilogram1, kilogram2;
 
     @Before
     public void setUp() {
@@ -265,6 +266,7 @@ public class QuantityMeasurementTest {
         assertEquals(3.0, (inch1 + inch2), 0.0);
     }
 
+
     //    ++++++++++++++++++++++++++++++++++++++++++++++++Volume+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
     //    ************************************************Gallon*******************************************************
@@ -365,18 +367,122 @@ public class QuantityMeasurementTest {
 
     //    ************************************************Add Volumes In Litres*******************************************************
 
-
     @Test
     public void given1GallonAnd3Point78Litre_WhenEqualTo7Point57Litre_ShouldReturnTrue() {
-        litre1= quantityMeasurement.returnLengthType(UnitType.GALLON, 1.0);
-        litre2= quantityMeasurement.returnLengthType(UnitType.LITRE, 3.785);
-        assertEquals(7.57,(litre1+litre2),0.0);
+        litre1 = quantityMeasurement.returnLengthType(UnitType.GALLON, 1.0);
+        litre2 = quantityMeasurement.returnLengthType(UnitType.LITRE, 3.785);
+        assertEquals(7.57, (litre1 + litre2), 0.0);
     }
 
     @Test
     public void given1LitreAnd1000Millilitre_WhenEqualTo2Litre_ShouldReturnTrue() {
-        litre1= quantityMeasurement.returnLengthType(UnitType.LITRE, 1.0);
-        litre2= quantityMeasurement.returnLengthType(UnitType.MILLILITRE, 1000.0);
-        assertEquals(2.0,(litre1+litre2),0.0);
+        litre1 = quantityMeasurement.returnLengthType(UnitType.LITRE, 1.0);
+        litre2 = quantityMeasurement.returnLengthType(UnitType.MILLILITRE, 1000.0);
+        assertEquals(2.0, (litre1 + litre2), 0.0);
+    }
+
+    //    ++++++++++++++++++++++++++++++++++++++++++++++++Weight+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    //    ************************************************Kilograms*******************************************************
+
+    @Test
+    public void given0KilogramAnd0Kilogram_WhenEqual_ShouldReturnTrue() {
+        kilogram1 = quantityMeasurement.returnLengthType(UnitType.KILOGRAM, 0.0);
+        kilogram2 = quantityMeasurement.returnLengthType(UnitType.KILOGRAM, 0.0);
+        assertEquals(kilogram1, kilogram2, 0.0);
+    }
+
+    @Test
+    public void given0KilogramAnd0Gram_WhenEqual_ShouldReturnTrue() {
+        kilogram1 = quantityMeasurement.returnLengthType(UnitType.KILOGRAM, 0.0);
+        kilogram2 = quantityMeasurement.returnLengthType(UnitType.GRAM, 0.0);
+        assertEquals(kilogram1, kilogram2, 0.0);
+    }
+
+    @Test
+    public void given0KilogramAnd1Gram_WhenNotEqual_ShouldReturnTrue() {
+        kilogram1 = quantityMeasurement.returnLengthType(UnitType.KILOGRAM, 0.0);
+        kilogram2 = quantityMeasurement.returnLengthType(UnitType.GRAM, 1.0);
+        assertNotEquals(kilogram1, kilogram2, 0.0);
+    }
+
+    @Test
+    public void givenNullValueForKilogram_IfEqual_ShouldReturnFalse() {
+        try {
+            quantityMeasurement.returnLengthType(UnitType.KILOGRAM, null);
+        } catch (NullPointerException e) {
+            assertEquals(null, e.getMessage());
+        }
+    }
+
+    //    ************************************************Tonne*******************************************************
+
+    @Test
+    public void given0TonneAnd0Tonne_WhenEqual_ShouldReturnTrue() {
+        kilogram1 = quantityMeasurement.returnLengthType(UnitType.TONNE, 0.0);
+        kilogram2 = quantityMeasurement.returnLengthType(UnitType.TONNE, 0.0);
+        assertEquals(kilogram1, kilogram2, 0.0);
+    }
+
+    @Test
+    public void given0TonneAnd0Gram_WhenEqual_ShouldReturnTrue() {
+        kilogram1 = quantityMeasurement.returnLengthType(UnitType.TONNE, 0.0);
+        kilogram2 = quantityMeasurement.returnLengthType(UnitType.GRAM, 0.0);
+        assertEquals(kilogram1, kilogram2, 0.0);
+    }
+
+    @Test
+    public void given0TonneAnd1Gram_WhenNotEqual_ShouldReturnTrue() {
+        kilogram1 = quantityMeasurement.returnLengthType(UnitType.TONNE, 0.0);
+        kilogram2 = quantityMeasurement.returnLengthType(UnitType.GRAM, 1.0);
+        assertNotEquals(kilogram1, kilogram2, 0.0);
+    }
+
+    @Test
+    public void givenNullValueForTonne_IfEqual_ShouldReturnFalse() {
+        try {
+            quantityMeasurement.returnLengthType(UnitType.TONNE, null);
+        } catch (NullPointerException e) {
+            assertEquals(null, e.getMessage());
+        }
+    }
+
+    //    ************************************************Gram*******************************************************
+
+    @Test
+    public void given0GramAnd0Gram_WhenEqual_ShouldReturnTrue() {
+        kilogram1 = quantityMeasurement.returnLengthType(UnitType.GRAM, 0.0);
+        kilogram2 = quantityMeasurement.returnLengthType(UnitType.GRAM, 0.0);
+        assertEquals(kilogram1, kilogram2, 0.0);
+    }
+
+    @Test
+    public void givenNullValueForGram_IfEqual_ShouldReturnFalse() {
+        try {
+            quantityMeasurement.returnLengthType(UnitType.GRAM, null);
+        } catch (NullPointerException e) {
+            assertEquals(null, e.getMessage());
+        }
+    }
+
+    @Test
+    public void given1KilogramAnd1000Gram_WhenEqual_ShouldReturnTrue() {
+        kilogram1 = quantityMeasurement.returnLengthType(UnitType.KILOGRAM, 1.0);
+        kilogram2 = quantityMeasurement.returnLengthType(UnitType.GRAM, 1000.0);
+        assertEquals(kilogram1, kilogram2, 0.0);
+    }
+
+    @Test
+    public void given1TonneAnd1000Kilogram_WhenEqual_ShouldReturnTrue() {
+        kilogram1 = quantityMeasurement.returnLengthType(UnitType.TONNE, 1.0);
+        kilogram2 = quantityMeasurement.returnLengthType(UnitType.KILOGRAM, 1000.0);
+        assertEquals(kilogram1, kilogram2, 0.0);
+    }
+
+    @Test
+    public void given1TonneAnd1000Gram_WhenEqualTo1001Kilogram_ShouldReturnTrue() {
+        kilogram1 = quantityMeasurement.returnLengthType(UnitType.TONNE, 1.0);
+        kilogram2 = quantityMeasurement.returnLengthType(UnitType.GRAM, 1000.0);
+        assertEquals(1001.0, (kilogram1 + kilogram2), 0.0);
     }
 }
