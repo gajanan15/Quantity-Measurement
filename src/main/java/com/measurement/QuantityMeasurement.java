@@ -1,10 +1,19 @@
 package com.measurement;
 
+import static com.measurement.UnitType.CELSIUS;
+
 public class QuantityMeasurement {
 
-
-    public double returnLengthType(UnitType type, Double unit) {
+    public double returnUnitType(UnitType type, Double unit) {
         return unit * type.conversionUnit;
+    }
+
+    public Double returnTemperature(UnitType type, Double unit) {
+        Double fahrenheit = unit;
+        if (type.equals(CELSIUS)) {
+            fahrenheit = (unit * (9.0 / 5)) + 32;
+        }
+        return fahrenheit;
     }
 
     @Override
