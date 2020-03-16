@@ -8,6 +8,7 @@ import static org.junit.Assert.*;
 
 public class QuantityMeasurementTest {
     private static QuantityMeasurement quantityMeasurement;
+    private double inch1, inch2;
 
     @Before
     public void setUp() {
@@ -18,21 +19,25 @@ public class QuantityMeasurementTest {
 
     @Test
     public void given0FeetAnd0Feet_IfEqual_ShouldReturnTrue() {
-        double feet1 = quantityMeasurement.returnLengthType(LengthType.FEET, 0.0);
-        double feet2 = quantityMeasurement.returnLengthType(LengthType.FEET, 0.0);
-        assertEquals(feet1, feet2, 0.0);
+        inch1 = quantityMeasurement.returnLengthType(LengthType.FEET, 0.0);
+        inch2 = quantityMeasurement.returnLengthType(LengthType.FEET, 0.0);
+        assertEquals(inch1, inch2, 0.0);
     }
 
     @Test
     public void given0FeetAnd1Feet_IfNotEqual_ShouldReturnTrue() {
-        double feet1 = quantityMeasurement.returnLengthType(LengthType.FEET, 0.0);
-        double feet2 = quantityMeasurement.returnLengthType(LengthType.FEET, 1.0);
-        assertNotEquals(feet1, feet2, 0.0);
+        inch1 = quantityMeasurement.returnLengthType(LengthType.FEET, 0.0);
+        inch2 = quantityMeasurement.returnLengthType(LengthType.FEET, 1.0);
+        assertNotEquals(inch1, inch2, 0.0);
     }
 
     @Test
     public void givenNullValueForFeet_IfEqual_ShouldReturnFalse() {
-        assertFalse(quantityMeasurement.equals(null));
+        try {
+            quantityMeasurement.returnLengthType(LengthType.FEET, null);
+        } catch (NullPointerException e) {
+            assertEquals(null, e.getMessage());
+        }
     }
 
     @Test
@@ -49,30 +54,34 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenValueCheck_IfEqual_ShouldReturnTrue() {
-        double value1 = quantityMeasurement.returnLengthType(LengthType.FEET, 2.2);
-        double value2 = quantityMeasurement.returnLengthType(LengthType.FEET, 2.2);
-        assertEquals(value1, value2, 0.0);
+        inch1 = quantityMeasurement.returnLengthType(LengthType.FEET, 2.2);
+        inch2 = quantityMeasurement.returnLengthType(LengthType.FEET, 2.2);
+        assertEquals(inch1, inch2, 0.0);
     }
 
-//    ************************************************INCH*******************************************************
+    //    ************************************************INCH*******************************************************
 
     @Test
     public void given0InchAnd0Inch_IfEqual_ShouldReturnTrue() {
-        double inch1 = quantityMeasurement.returnLengthType(LengthType.INCH, 0.0);
-        double inch2 = quantityMeasurement.returnLengthType(LengthType.INCH, 0.0);
+        inch1 = quantityMeasurement.returnLengthType(LengthType.INCH, 0.0);
+        inch2 = quantityMeasurement.returnLengthType(LengthType.INCH, 0.0);
         assertEquals(inch1, inch2, 0.0);
     }
 
     @Test
     public void given0InchAnd1Inch_IfNotEqual_ShouldReturnTrue() {
-        double inch1 = quantityMeasurement.returnLengthType(LengthType.INCH, 0.0);
-        double inch2 = quantityMeasurement.returnLengthType(LengthType.INCH, 1.0);
+        inch1 = quantityMeasurement.returnLengthType(LengthType.INCH, 0.0);
+        inch2 = quantityMeasurement.returnLengthType(LengthType.INCH, 1.0);
         assertNotEquals(inch1, inch2, 0.0);
     }
 
     @Test
     public void givenNullValueForInch_IfEqual_ShouldReturnFalse() {
-        assertFalse(quantityMeasurement.equals(null));
+        try {
+            quantityMeasurement.returnLengthType(LengthType.INCH, null);
+        } catch (NullPointerException e) {
+            assertEquals(null, e.getMessage());
+        }
     }
 
     @Test
@@ -89,41 +98,109 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenValueCheckForInch_IfEqual_ShouldReturnTrue() {
-        double value1 = quantityMeasurement.returnLengthType(LengthType.INCH, 2.2);
-        double value2 = quantityMeasurement.returnLengthType(LengthType.INCH, 2.2);
-        assertEquals(value1, value2, 0.0);
+        inch1 = quantityMeasurement.returnLengthType(LengthType.INCH, 2.2);
+        inch2 = quantityMeasurement.returnLengthType(LengthType.INCH, 2.2);
+        assertEquals(inch1, inch2, 0.0);
     }
 
     @Test
     public void given0FeetAnd0Inch_IfEquals_ShouldReturnTrue() {
-        double feet = quantityMeasurement.returnLengthType(LengthType.FEET, 0.0);
-        double inch = quantityMeasurement.returnLengthType(LengthType.INCH, 0.0);
-        assertEquals(feet, inch, 0.0);
+        inch1 = quantityMeasurement.returnLengthType(LengthType.FEET, 0.0);
+        inch2 = quantityMeasurement.returnLengthType(LengthType.INCH, 0.0);
+        assertEquals(inch1, inch2, 0.0);
     }
 
     @Test
     public void given1FeetAnd1Inch_IfNotEqual_ShouldReturnTrue() {
-        double feet = quantityMeasurement.returnLengthType(LengthType.FEET, 1.0);
-        double inch = quantityMeasurement.returnLengthType(LengthType.INCH, 1.0);
-        assertNotEquals(feet, inch, 0.0);
+        inch1 = quantityMeasurement.returnLengthType(LengthType.FEET, 1.0);
+        inch2 = quantityMeasurement.returnLengthType(LengthType.INCH, 1.0);
+        assertNotEquals(inch1, inch2, 0.0);
     }
 
     @Test
     public void given1InchAnd1Feet_IfNotEqual_ShouldReturnTrue() {
-        double inch = quantityMeasurement.returnLengthType(LengthType.INCH, 1.0);
-        double feet = quantityMeasurement.returnLengthType(LengthType.FEET, 1.0);
-        assertNotEquals(inch, feet, 0.0);
+        inch1 = quantityMeasurement.returnLengthType(LengthType.INCH, 1.0);
+        inch2 = quantityMeasurement.returnLengthType(LengthType.FEET, 1.0);
+        assertNotEquals(inch1, inch2, 0.0);
     }
 
     @Test
     public void given1FeetAnd12Inch_IfEqual_ShouldReturnTrue() {
-        double inch = quantityMeasurement.returnLengthType(LengthType.FEET, 1.0);
-        assertEquals(12, inch, 0.0);
+        inch1 = quantityMeasurement.returnLengthType(LengthType.FEET, 1.0);
+        assertEquals(12, inch1, 0.0);
     }
 
     @Test
     public void given12InchAnd1Feet_IfEqual_ShouldReturnTrue() {
-        double feet = quantityMeasurement.returnLengthType(LengthType.INCH, 12.0);
-        assertEquals(1.0, feet, 0.0);
+        inch1 = quantityMeasurement.returnLengthType(LengthType.INCH, 12.0);
+        inch2 = quantityMeasurement.returnLengthType(LengthType.FEET, 1.0);
+        assertEquals(inch1, inch2, 0.0);
+    }
+
+    //    ************************************************YARD*******************************************************
+
+    @Test
+    public void given0FeetAnd0Yard_WhenEqual_ShouldReturnTrue() {
+        inch1 = quantityMeasurement.returnLengthType(LengthType.FEET, 0.0);
+        inch2 = quantityMeasurement.returnLengthType(LengthType.YARD, 0.0);
+        assertEquals(inch1, inch2, 0.0);
+    }
+
+    @Test
+    public void given1FeetAnd0Yard_WhenNotEqual_ShouldReturnTrue() {
+        inch1 = quantityMeasurement.returnLengthType(LengthType.FEET, 1.0);
+        inch2 = quantityMeasurement.returnLengthType(LengthType.YARD, 0.0);
+        assertNotEquals(inch1, inch2, 0.0);
+    }
+
+    @Test
+    public void givenNullValueForYard_WhenEqual_ShouldReturnTrue() {
+        try {
+            quantityMeasurement.returnLengthType(LengthType.YARD, null);
+        } catch (NullPointerException e) {
+            assertEquals(null, e.getMessage());
+        }
+    }
+
+    @Test
+    public void given3FeetAnd1Yard_WhenEqual_ShouldReturnTrue() {
+        inch1 = quantityMeasurement.returnLengthType(LengthType.FEET, 3.0);
+        inch2 = quantityMeasurement.returnLengthType(LengthType.YARD, 1.0);
+        assertEquals(inch1, inch2, 0.0);
+    }
+
+    @Test
+    public void given1FeetAnd1Yard_WhenNotEqual_ShouldReturnTrue() {
+        inch1 = quantityMeasurement.returnLengthType(LengthType.FEET, 1.0);
+        inch2 = quantityMeasurement.returnLengthType(LengthType.YARD, 1.0);
+        assertNotEquals(inch1, inch2, 0.0);
+    }
+
+    @Test
+    public void given1InchAnd1Yard_WhenNotEqual_ShouldReturnTrue() {
+        inch1 = quantityMeasurement.returnLengthType(LengthType.INCH, 1.0);
+        inch2 = quantityMeasurement.returnLengthType(LengthType.YARD, 1.0);
+        assertNotEquals(inch1, inch2, 0.0);
+    }
+
+    @Test
+    public void given1YardAnd36Inch_WhenEqual_ShouldReturnTrue() {
+        inch1 = quantityMeasurement.returnLengthType(LengthType.YARD, 1.0);
+        inch2 = quantityMeasurement.returnLengthType(LengthType.INCH, 36.0);
+        assertEquals(inch1, inch2, 0.0);
+    }
+
+    @Test
+    public void given36InchAnd1Yard_WhenEqual_ShouldReturnTrue() {
+        inch1 = quantityMeasurement.returnLengthType(LengthType.INCH, 36.0);
+        inch2 = quantityMeasurement.returnLengthType(LengthType.YARD, 1.0);
+        assertEquals(inch1, inch2, 0.0);
+    }
+
+    @Test
+    public void given1YardAnd3Feet_WhenEqual_ShouldReturnTrue() {
+        inch1 = quantityMeasurement.returnLengthType(LengthType.YARD, 1.0);
+        inch2 = quantityMeasurement.returnLengthType(LengthType.FEET, 3.0);
+        assertEquals(inch1, inch2, 0.0);
     }
 }
