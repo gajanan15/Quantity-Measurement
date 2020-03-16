@@ -9,6 +9,7 @@ import static org.junit.Assert.*;
 public class QuantityMeasurementTest {
     private static QuantityMeasurement quantityMeasurement;
     private double inch1, inch2;
+    private double litre1,litre2;
 
     @Before
     public void setUp() {
@@ -270,23 +271,23 @@ public class QuantityMeasurementTest {
 
     @Test
     public void given0GallonAnd0Gallon_WhenEqual_ShouldReturnTrue() {
-        double millilitre1 = quantityMeasurement.returnLengthType(UnitType.GALLON, 0.0);
-        double millilitre2 = quantityMeasurement.returnLengthType(UnitType.GALLON, 0.0);
-        assertEquals(millilitre1, millilitre2, 0.0);
+        litre1 = quantityMeasurement.returnLengthType(UnitType.GALLON, 0.0);
+        litre2 = quantityMeasurement.returnLengthType(UnitType.GALLON, 0.0);
+        assertEquals(litre1, litre2, 0.0);
     }
 
     @Test
     public void given0GallonAnd0Litre_WhenEqual_ShouldReturnTrue() {
-        double millilitre1 = quantityMeasurement.returnLengthType(UnitType.GALLON, 0.0);
-        double millilitre2 = quantityMeasurement.returnLengthType(UnitType.LITRE, 0.0);
-        assertEquals(millilitre1, millilitre2, 0.0);
+        litre1 = quantityMeasurement.returnLengthType(UnitType.GALLON, 0.0);
+        litre2 = quantityMeasurement.returnLengthType(UnitType.LITRE, 0.0);
+        assertEquals(litre1, litre2, 0.0);
     }
 
     @Test
     public void given0GallonAnd1Litre_WhenNotEqual_ShouldReturnTrue() {
-        double millilitre1 = quantityMeasurement.returnLengthType(UnitType.GALLON, 0.0);
-        double millilitre2 = quantityMeasurement.returnLengthType(UnitType.LITRE, 1.0);
-        assertNotEquals(millilitre1, millilitre2, 0.0);
+        litre1 = quantityMeasurement.returnLengthType(UnitType.GALLON, 0.0);
+        litre2 = quantityMeasurement.returnLengthType(UnitType.LITRE, 1.0);
+        assertNotEquals(litre1, litre2, 0.0);
     }
 
     @Test
@@ -302,23 +303,23 @@ public class QuantityMeasurementTest {
 
     @Test
     public void given0LitreAnd0Litre_WhenEqual_ShouldReturnTrue() {
-        double millilitre1 = quantityMeasurement.returnLengthType(UnitType.LITRE, 0.0);
-        double millilitre2 = quantityMeasurement.returnLengthType(UnitType.LITRE, 0.0);
-        assertEquals(millilitre1, millilitre2, 0.0);
+        litre1 = quantityMeasurement.returnLengthType(UnitType.LITRE, 0.0);
+        litre2 = quantityMeasurement.returnLengthType(UnitType.LITRE, 0.0);
+        assertEquals(litre1, litre2, 0.0);
     }
 
     @Test
     public void given0LitreAnd0Millilitre_WhenEqual_ShouldReturnTrue() {
-        double millilitre1 = quantityMeasurement.returnLengthType(UnitType.LITRE, 0.0);
-        double millilitre2 = quantityMeasurement.returnLengthType(UnitType.MILLILITRE, 0.0);
-        assertEquals(millilitre1, millilitre2, 0.0);
+        litre1 = quantityMeasurement.returnLengthType(UnitType.LITRE, 0.0);
+        litre2 = quantityMeasurement.returnLengthType(UnitType.MILLILITRE, 0.0);
+        assertEquals(litre1, litre2, 0.0);
     }
 
     @Test
     public void given0LitreAnd1Millilitre_WhenNotEqual_ShouldReturnTrue() {
-        double millilitre1 = quantityMeasurement.returnLengthType(UnitType.LITRE, 0.0);
-        double millilitre2 = quantityMeasurement.returnLengthType(UnitType.MILLILITRE, 1.0);
-        assertNotEquals(millilitre1, millilitre2, 0.0);
+        litre1 = quantityMeasurement.returnLengthType(UnitType.LITRE, 0.0);
+        litre2 = quantityMeasurement.returnLengthType(UnitType.MILLILITRE, 1.0);
+        assertNotEquals(litre1, litre2, 0.0);
     }
 
     @Test
@@ -334,9 +335,9 @@ public class QuantityMeasurementTest {
 
     @Test
     public void given0MillilitreAnd0Millilitre_WhenEqual_ShouldReturnTrue() {
-        double millilitre1 = quantityMeasurement.returnLengthType(UnitType.MILLILITRE, 0.0);
-        double millilitre2 = quantityMeasurement.returnLengthType(UnitType.MILLILITRE, 0.0);
-        assertEquals(millilitre1, millilitre2, 0.0);
+        litre1 = quantityMeasurement.returnLengthType(UnitType.MILLILITRE, 0.0);
+        litre2 = quantityMeasurement.returnLengthType(UnitType.MILLILITRE, 0.0);
+        assertEquals(litre1, litre2, 0.0);
     }
 
     @Test
@@ -350,15 +351,32 @@ public class QuantityMeasurementTest {
 
     @Test
     public void given1GallonAnd3Point78Litre_WhenEqual_ShouldReturnTrue() {
-        double millilitre1 = quantityMeasurement.returnLengthType(UnitType.GALLON, 1.0);
-        double millilitre2 = quantityMeasurement.returnLengthType(UnitType.LITRE, 3.785);
-        assertEquals(millilitre1, millilitre2, 0.0);
+        litre1 = quantityMeasurement.returnLengthType(UnitType.GALLON, 1.0);
+        litre2 = quantityMeasurement.returnLengthType(UnitType.LITRE, 3.785);
+        assertEquals(litre1, litre2, 0.0);
     }
 
     @Test
     public void given1LitreAnd1000Millilitre_WhenEqual_ShouldReturnTrue() {
-        double millilitre1 = quantityMeasurement.returnLengthType(UnitType.LITRE, 1.0);
-        double millilitre2 = quantityMeasurement.returnLengthType(UnitType.MILLILITRE, 1000.0);
-        assertEquals(millilitre1, millilitre2, 0.0);
+        litre1 = quantityMeasurement.returnLengthType(UnitType.LITRE, 1.0);
+        litre2 = quantityMeasurement.returnLengthType(UnitType.MILLILITRE, 1000.0);
+        assertEquals(litre1, litre2, 0.0);
+    }
+
+    //    ************************************************Add Volumes In Litres*******************************************************
+
+
+    @Test
+    public void given1GallonAnd3Point78Litre_WhenEqualTo7Point57Litre_ShouldReturnTrue() {
+        litre1= quantityMeasurement.returnLengthType(UnitType.GALLON, 1.0);
+        litre2= quantityMeasurement.returnLengthType(UnitType.LITRE, 3.785);
+        assertEquals(7.57,(litre1+litre2),0.0);
+    }
+
+    @Test
+    public void given1LitreAnd1000Millilitre_WhenEqualTo2Litre_ShouldReturnTrue() {
+        litre1= quantityMeasurement.returnLengthType(UnitType.LITRE, 1.0);
+        litre2= quantityMeasurement.returnLengthType(UnitType.MILLILITRE, 1000.0);
+        assertEquals(2.0,(litre1+litre2),0.0);
     }
 }
