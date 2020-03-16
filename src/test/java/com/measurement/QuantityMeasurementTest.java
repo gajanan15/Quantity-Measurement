@@ -233,8 +233,34 @@ public class QuantityMeasurementTest {
     public void given2InchAnd5Centimeter_IfEqual_ShouldReturnTrue() {
         inch1 = quantityMeasurement.returnLengthType(LengthType.INCH, 2.0);
         inch2 = quantityMeasurement.returnLengthType(LengthType.CENTIMETER, 5.0);
-
         assertEquals(inch1, inch2, 0.0);
+    }
 
+    //    ************************************************ADD TWO LENGTHS*******************************************************
+
+    @Test
+    public void given2InchAnd2Inch_WhenEqualTo4Inch_ShouldReturnTrue() {
+        inch1 = quantityMeasurement.returnLengthType(LengthType.INCH, 2.0);
+        assertEquals(4.0, (inch1 + inch1), 0.0);
+    }
+
+    @Test
+    public void given1FeetAnd2Inch_WhenEqualTo14Inch_ShouldReturnTrue() {
+        inch1 = quantityMeasurement.returnLengthType(LengthType.FEET, 1.0);
+        inch2 = quantityMeasurement.returnLengthType(LengthType.INCH, 2.0);
+        assertEquals(14.0, (inch1 + inch2), 0.0);
+    }
+
+    @Test
+    public void given1FeetAnd1Feet_WhenEqualTo24Inch_ShouldReturnTrue() {
+        inch1 = quantityMeasurement.returnLengthType(LengthType.FEET, 1.0);
+        assertEquals(24.0, (inch1 + inch1), 0.0);
+    }
+
+    @Test
+    public void given2InchAnd2Point5Centimeter_WhenEqualTo3Inch_ShouldReturnTrue() {
+        inch1 = quantityMeasurement.returnLengthType(LengthType.INCH, 2.0);
+        inch2 = quantityMeasurement.returnLengthType(LengthType.CENTIMETER, 2.5);
+        assertEquals(3.0, (inch1 + inch2), 0.0);
     }
 }
