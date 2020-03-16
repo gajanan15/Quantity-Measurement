@@ -203,4 +203,38 @@ public class QuantityMeasurementTest {
         inch2 = quantityMeasurement.returnLengthType(LengthType.FEET, 3.0);
         assertEquals(inch1, inch2, 0.0);
     }
+
+    //    ************************************************CENTIMETER*******************************************************
+
+    @Test
+    public void given0CentimeterAnd0Centimeter_IfEqual_ShouldReturnTrue() {
+        inch1 = quantityMeasurement.returnLengthType(LengthType.CENTIMETER, 0.0);
+        inch2 = quantityMeasurement.returnLengthType(LengthType.CENTIMETER, 0.0);
+        assertEquals(inch1, inch2, 0.0);
+    }
+
+    @Test
+    public void given0CentimeterAnd1Inch_IfNotEqual_ShouldReturnTrue() {
+        inch1 = quantityMeasurement.returnLengthType(LengthType.CENTIMETER, 0.0);
+        inch2 = quantityMeasurement.returnLengthType(LengthType.INCH, 1.0);
+        assertNotEquals(inch1, inch2, 0.0);
+    }
+
+    @Test
+    public void givenNullValueForCentimeter_IfEqual_ShouldReturnFalse() {
+        try {
+            quantityMeasurement.returnLengthType(LengthType.CENTIMETER, null);
+        } catch (NullPointerException e) {
+            assertEquals(null, e.getMessage());
+        }
+    }
+
+    @Test
+    public void given2InchAnd5Centimeter_IfEqual_ShouldReturnTrue() {
+        inch1 = quantityMeasurement.returnLengthType(LengthType.INCH, 2.0);
+        inch2 = quantityMeasurement.returnLengthType(LengthType.CENTIMETER, 5.0);
+
+        assertEquals(inch1, inch2, 0.0);
+
+    }
 }
