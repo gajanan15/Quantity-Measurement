@@ -244,27 +244,33 @@ public class QuantityMeasurementTest {
     @Test
     public void given2InchAnd2Inch_WhenEqualTo4Inch_ShouldReturnTrue() {
         inch1 = quantityMeasurement.returnUnitType(UnitType.INCH, 2.0);
-        assertEquals(4.0, (inch1 + inch1), 0.0);
+        inch2 = quantityMeasurement.returnUnitType(UnitType.INCH, 2.0);
+        Double finalResult = quantityMeasurement.add(inch1, inch2);
+        assertEquals(4.0, finalResult, 0.0);
     }
 
     @Test
     public void given1FeetAnd2Inch_WhenEqualTo14Inch_ShouldReturnTrue() {
         inch1 = quantityMeasurement.returnUnitType(UnitType.FEET, 1.0);
         inch2 = quantityMeasurement.returnUnitType(UnitType.INCH, 2.0);
-        assertEquals(14.0, (inch1 + inch2), 0.0);
+        Double finalResult = quantityMeasurement.add(inch1, inch2);
+        assertEquals(14.0, finalResult, 0.0);
     }
 
     @Test
     public void given1FeetAnd1Feet_WhenEqualTo24Inch_ShouldReturnTrue() {
         inch1 = quantityMeasurement.returnUnitType(UnitType.FEET, 1.0);
-        assertEquals(24.0, (inch1 + inch1), 0.0);
+        inch2 = quantityMeasurement.returnUnitType(UnitType.FEET, 1.0);
+        Double finalResult = quantityMeasurement.add(inch1, inch2);
+        assertEquals(24.0, finalResult, 0.0);
     }
 
     @Test
     public void given2InchAnd2Point5Centimeter_WhenEqualTo3Inch_ShouldReturnTrue() {
         inch1 = quantityMeasurement.returnUnitType(UnitType.INCH, 2.0);
         inch2 = quantityMeasurement.returnUnitType(UnitType.CENTIMETER, 2.5);
-        assertEquals(3.0, (inch1 + inch2), 0.0);
+        Double finalResult = quantityMeasurement.add(inch1, inch2);
+        assertEquals(3.0, finalResult, 0.0);
     }
 
 
@@ -372,14 +378,16 @@ public class QuantityMeasurementTest {
     public void given1GallonAnd3Point78Litre_WhenEqualTo7Point57Litre_ShouldReturnTrue() {
         litre1 = quantityMeasurement.returnUnitType(UnitType.GALLON, 1.0);
         litre2 = quantityMeasurement.returnUnitType(UnitType.LITRE, 3.785);
-        assertEquals(7.57, (litre1 + litre2), 0.0);
+        Double finalResult = quantityMeasurement.add(litre1, litre2);
+        assertEquals(7.57, finalResult, 0.0);
     }
 
     @Test
     public void given1LitreAnd1000Millilitre_WhenEqualTo2Litre_ShouldReturnTrue() {
         litre1 = quantityMeasurement.returnUnitType(UnitType.LITRE, 1.0);
         litre2 = quantityMeasurement.returnUnitType(UnitType.MILLILITRE, 1000.0);
-        assertEquals(2.0, (litre1 + litre2), 0.0);
+        Double finalResult = quantityMeasurement.add(litre1, litre2);
+        assertEquals(2.0, finalResult, 0.0);
     }
 
     //    ++++++++++++++++++++++++++++++++++++++++++++++++Weight+++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -484,7 +492,8 @@ public class QuantityMeasurementTest {
     public void given1TonneAnd1000Gram_WhenEqualTo1001Kilogram_ShouldReturnTrue() {
         kilogram1 = quantityMeasurement.returnUnitType(UnitType.TONNE, 1.0);
         kilogram2 = quantityMeasurement.returnUnitType(UnitType.GRAM, 1000.0);
-        assertEquals(1001.0, (kilogram1 + kilogram2), 0.0);
+        Double finalResult = quantityMeasurement.add(kilogram1, kilogram2);
+        assertEquals(1001.0, finalResult, 0.0);
     }
 
     //    ++++++++++++++++++++++++++++++++++++++++++++++++Temperature+++++++++++++++++++++++++++++++++++++++++++++++++++++++

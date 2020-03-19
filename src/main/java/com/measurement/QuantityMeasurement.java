@@ -16,6 +16,10 @@ public class QuantityMeasurement {
         return fahrenheit;
     }
 
+    public Double add(Double unit1, Double unit2) {
+        return unit1 + unit2;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj == null)
