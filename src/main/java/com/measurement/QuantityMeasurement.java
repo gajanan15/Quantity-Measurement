@@ -4,19 +4,16 @@ import static com.measurement.UnitType.CELSIUS;
 
 public class QuantityMeasurement {
 
+    public double unit;
+
     public double returnUnitType(UnitType type, Double unit) {
+        if (type.equals(CELSIUS)) {
+            return ((unit * type.conversionUnit) + 32);
+        }
         return unit * type.conversionUnit;
     }
 
-    public Double returnTemperature(UnitType type, Double unit) {
-        Double fahrenheit = unit;
-        if (type.equals(CELSIUS)) {
-            fahrenheit = (unit * (9.0 / 5)) + 32;
-        }
-        return fahrenheit;
-    }
-
-    public Double add(Double unit1, Double unit2) {
+    public Double addConversion(Double unit1, Double unit2) {
         return unit1 + unit2;
     }
 
@@ -28,6 +25,11 @@ public class QuantityMeasurement {
             return true;
         if (obj == this)
             return true;
-        return super.equals(obj);
+        QuantityMeasurement quantity = (QuantityMeasurement) obj;
+        return this.compare(quantity.unit, unit);
+    }
+
+    private boolean compare(double unit1, double unit2) {
+        return Double.compare(unit1, unit2) == 0;
     }
 }
